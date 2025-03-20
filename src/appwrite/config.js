@@ -101,7 +101,19 @@ export class Service{
             )
         } catch (error) {
             console.log("Appwrite serive :: uploadFile :: error",error);
-            
+            return false
+        }
+    }
+
+    async deleteFile(fileId){
+        try {
+            await this.bucket.deleteFile(
+                conf.appwriteBucketId,
+                fileId,
+            )
+        } catch (error) {
+            console.log("Appwrite serive :: deleteFile :: error",error);
+            return false            
         }
     }
 
