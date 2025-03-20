@@ -7,7 +7,7 @@ export class Service{
     bucket;
     constructor(){
         this.client
-        .setEndpoint.client(conf.appwriteUrl)
+        .setEndpoint(conf.appwriteUrl)
         .setProject(conf.appwriteProjectId);
         this.databases = new Databases(this.client);
         this.bucket = new Storage(this.client);
@@ -71,7 +71,7 @@ export class Service{
         try {
             return await this.databases.getDocument(
                 conf.appwriteDatabaseId,
-                appwriteCollectionId,
+                conf.appwriteCollectionId,
                 slug
             )
         } catch (error) {
@@ -124,6 +124,7 @@ export class Service{
         )
     }
 }
+
 
 const service = new Service;
 
